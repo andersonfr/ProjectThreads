@@ -1,0 +1,2 @@
+#define ProjectThreads_VERSION_MAJOR @ProjectThreads_VERSION_MAJOR@
+#define ProjectThreads_VERSION_MINOR @ProjectThreads_VERSION_MINOR@
