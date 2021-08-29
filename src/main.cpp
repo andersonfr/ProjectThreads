@@ -1,14 +1,17 @@
-#include <iostream>
+#include <string>
 #include <thread>
+#include <functional>
+#include <vector>
 #include "ProjectThreadsConfig.h"
+#include "FileManager.h"
 
 int main () 
 {
-    std::cout << "Hello World" << std::endl;
     std::cout << "Project Major Version " << ProjectThreads_VERSION_MAJOR << std::endl;
-    std::cout << "Project Minor Version " << ProjectThreads_VERSION_MINOR << std::endl; 
-    std::thread thread = std::thread([]() { std::cout << "I'm a thread" << std::endl;});
-    thread.join();
-    std::cout << "I'm main thread finalizing";
+    std::cout << "Project Minor Version " << ProjectThreads_VERSION_MINOR << std::endl;
+
+    Threads::FileManager fm;
+    fm.Start();
+
     return 0;
 }

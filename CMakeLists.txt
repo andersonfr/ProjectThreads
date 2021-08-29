@@ -8,9 +8,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED true)
 
 #configure file
 configure_file("src/ProjectThreadsConfig.h.in" "ProjectThreadsConfig.h")
-
+file(GLOB SOURCES "src/*.cpp", "src/*/*.cpp") 
 #add the executable
-add_executable(ProjectThreads "src/main.cpp")
-
+add_executable(${PROJECT_NAME} ${SOURCES})
 #target include dir
-target_include_directories(ProjectThreads PUBLIC "${PROJECT_BINARY_DIR}")
+target_include_directories(ProjectThreads 
+PUBLIC 
+"${PROJECT_BINARY_DIR}" 
+PUBLIC 
+$<INSTALL_INTERFACE:include>
+$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>)
